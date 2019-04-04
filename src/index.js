@@ -15,11 +15,13 @@ const renderApp = () => {
 
   ReactDOM.render(
     <Provider store={store}>
-      <GlobalStyles />
-      <App />
+      <div>
+        <GlobalStyles />
+        <App />
+      </div>
     </Provider>,
     document.getElementById('root')
   );
-}
+};
 
 renderApp();

@@ -6,11 +6,11 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html, body {
+    font-family: Lato, Helvetica-Neue, Helvetica, Arial, sans-serif;
     width: 100vw;
     overflow-x: hidden;
     margin: 0;
     padding: 0;
-    font-family: Lato, Helvetica-Neue, Helvetica, Arial, sans-serif;
   }
 
   ul {
@@ -20,6 +20,7 @@ const GlobalStyles = createGlobalStyle`
 
   a {
     text-decoration: none;
+
     &:visited {
       color: inherit;
     }

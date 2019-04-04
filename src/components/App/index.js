@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import { ThemeProvider } from 'styled-components';
+import { colorsDark } from '../../styles/palette';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <h1>Hacker News Reader</h1>
-      </div>
+      <ThemeProvider theme={colorsDark}>
+        <div>
+
+        </div>
+      </ThemeProvider>
     )
   }
 }

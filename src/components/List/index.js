@@ -2,9 +2,11 @@ import React from 'react';
 import { ListWrapper } from './styles';
 import ListItem from '../ListItem';
 
-const List = () => (
+const List = ({ stories }) => (
   <ListWrapper>
-    <ListItem />
+    {stories.map(story => (
+      <ListItem key={story.id} {...story} />
+    ))}
   </ListWrapper>
 );
 

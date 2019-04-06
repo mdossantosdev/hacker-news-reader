@@ -35,6 +35,6 @@ const ListItem = () => {
       </Description>
     </Item>
   )
-}
+};
 
 export default ListItem;

@@ -5,7 +5,9 @@ import ListItem from '../ListItem';
 const List = ({ stories }) => (
   <ListWrapper>
     {stories.map(story => (
-      <ListItem key={story.id} {...story} />
+      story
+        ? <ListItem key={story.id} {...story} />
+        : null
     ))}
   </ListWrapper>
 );

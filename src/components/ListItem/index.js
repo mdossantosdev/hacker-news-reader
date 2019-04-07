@@ -1,9 +1,11 @@
 import React from 'react';
+import TimeAgo from 'react-timeago';
 import { Item, Title, Host, ExternalLink, Description, CommentLink } from './styles';
 
 const LINK_REL = 'nofollow noreferrer noopener';
 
-const ListItem = () => {
+const ListItem = ({ by, kids = [], score, url, title, id, type, time }) => {
+  console.log({ by, kids, score, url, title, id, type, time });
   return (
     <Item>
       <ExternalLink
@@ -12,25 +14,25 @@ const ListItem = () => {
         target='_blank'
       >
         <Title>
-          The Developer Community <Host>(gitconnected.com)</Host>
+          {title} <Host>(gitconnected.com)</Host>
         </Title>
       </ExternalLink>
       <Description>
-        9000 points by{' '}
+        {score} points by{' '}
         <CommentLink
           href='#'
           rel={LINK_REL}
           target='_blank'
         >
-          Test User
+          {by}
         </CommentLink>{' '}
-        1 Hour Ago {' | '}
+        <TimeAgo date={new Date(time * 1000).toISOString()} /> {' | '}
         <CommentLink
           href='#'
           rel={LINK_REL}
           target='_blank'
         >
-          42 Comments
+          {kids.length} Comments
         </CommentLink>
       </Description>
     </Item>

@@ -1,15 +1,19 @@
 import React from 'react';
 import TimeAgo from 'react-timeago';
 import { Item, Title, Host, ExternalLink, Description, CommentLink } from './styles';
+import getArticleLink, { HN_USER, HN_ITEM } from '../../utils/getArticleLink';
 
 const LINK_REL = 'nofollow noreferrer noopener';
 
 const ListItem = ({ by, kids = [], score, url, title, id, type, time }) => {
-  console.log({ by, kids, score, url, title, id, type, time });
+  const link = getArticleLink({ url, id });
+  const commentUrl = `${HN_ITEM}${id}`;
+  const userUrl = `${HN_USER}${by}`;
+
   return (
     <Item>
       <ExternalLink
-        href='https://gitconnected.com'
+        href={link}
         rel={LINK_REL}
         target='_blank'
       >
@@ -20,7 +24,7 @@ const ListItem = ({ by, kids = [], score, url, title, id, type, time }) => {
       <Description>
         {score} points by{' '}
         <CommentLink
-          href='#'
+          href={userUrl}
           rel={LINK_REL}
           target='_blank'
         >
@@ -28,7 +32,7 @@ const ListItem = ({ by, kids = [], score, url, title, id, type, time }) => {
         </CommentLink>{' '}
         <TimeAgo date={new Date(time * 1000).toISOString()} /> {' | '}
         <CommentLink
-          href='#'
+          href={commentUrl}
           rel={LINK_REL}
           target='_blank'
         >

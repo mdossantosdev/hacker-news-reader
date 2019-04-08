@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { ThemeProvider } from 'styled-components';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { colorsDark } from '../../styles/palette';
+import { colorsLight, colorsDark } from '../../styles/palette';
 import { Wrapper } from './styles';
+import { themes } from '../../store/app/utils';
 
 import Nav from '../Nav';
 import List from '../List';
@@ -11,6 +12,21 @@ import Loader from '../Loader';
 class App extends Component {
   componentDidMount = () => {
     this.props.fetchStoriesFirstPage();
+    this.setBodyBackgroundColor();
+  }
+
+  componentDidUpdate = prevProps => {
+    if (prevProps.theme !== this.props.theme) {
+      this.setBodyBackgroundColor();
+    }
+  }
+
+  setBodyBackgroundColor = () => {
+    if (this.props.theme === themes.light) {
+      document.body.style = `background-color: ${colorsLight.background};`;
+    } else {
+      document.body.style = `background-color: ${colorsDark.background};`;
+    }
   }
 
   fetchStories = () => {
@@ -18,13 +34,13 @@ class App extends Component {
     if (!isFetching) {
       fetchStories({ storyIds, page });
     }
-  }
+  };
 
   render() {
-    const { stories, hasMoreStories } = this.props;
+    const { theme, stories, hasMoreStories } = this.props;
 
     return (
-      <ThemeProvider theme={colorsDark}>
+      <ThemeProvider theme={theme === themes.light ? colorsLight : colorsDark}>
         <div>
           <Nav />
           <Wrapper>

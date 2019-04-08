@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchStoriesFirstPage: () => dispatch(actions.fetchStoryIds()),
-  fetchStories: ({ storyIds, page}) => dispatch(actions.fetchStories({ storyIds, page })),
+  fetchStories: ({ storyIds, page }) => dispatch(actions.fetchStories({ storyIds, page })),
 });
 
 export default connect(

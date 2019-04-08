@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { ThemeProvider } from 'styled-components';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { colorsDark } from '../../styles/palette';
-import { Wrapper, Title } from './styles';
+import { Wrapper } from './styles';
+
+import Nav from '../Nav';
 import List from '../List';
 import Loader from '../Loader';
 
@@ -24,8 +26,8 @@ class App extends Component {
     return (
       <ThemeProvider theme={colorsDark}>
         <div>
+          <Nav />
           <Wrapper>
-            <Title>Hacker News Reader</Title>
             <InfiniteScroll
               dataLength={stories.length}
               next={this.fetchStories}

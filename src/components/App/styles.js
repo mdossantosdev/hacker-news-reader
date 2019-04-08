@@ -13,11 +13,3 @@ export const Wrapper = styled.div`
     width: 96%;
   }
 `;
-
-export const Title = styled.h1`
-  color: ${props => props.theme.textSecondary};
-  font-size: 20px;
-  font-weight: 300;
-  margin-top: 24px;
-  margin-bottom: 26px;
-`;

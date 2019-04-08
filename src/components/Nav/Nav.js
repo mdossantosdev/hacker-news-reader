@@ -8,8 +8,9 @@ import {
   Title,
   Spacer,
 } from './styles';
+import { themes } from '../../store/app/utils';
 
-const Nav = () => {
+const Nav = ({ theme, setTheme }) => {
   return (
     <div>
       <Header>
@@ -21,6 +22,17 @@ const Nav = () => {
               </Icon>
               <Title>Hacker News Reader</Title>
             </Link>
+          </NavSection>
+          <NavSection>
+            {theme === themes.light ? (
+              <Icon onClick={() => setTheme(themes.dark)}>
+                <i className='fas fa-moon' />
+              </Icon>
+            ) : (
+              <Icon onClick={() => setTheme(themes.light)}>
+                <i className='fas fa-sun' />
+              </Icon>
+            )}
           </NavSection>
         </Content>
       </Header>

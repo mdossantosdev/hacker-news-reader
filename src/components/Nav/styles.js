@@ -39,8 +39,7 @@ export const Link = styled.a`
 `;
 
 export const Icon = styled.div`
-  margin-left: 12px;
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
 `;
 

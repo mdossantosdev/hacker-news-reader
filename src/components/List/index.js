@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ListWrapper } from './styles';
 import ListItem from '../ListItem';
 
@@ -11,5 +12,9 @@ const List = ({ stories }) => (
     ))}
   </ListWrapper>
 );
+
+List.propTypes = {
+  stories: PropTypes.array.isRequired,
+};
 
 export default List;

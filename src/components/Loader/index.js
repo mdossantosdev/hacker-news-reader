@@ -7,6 +7,6 @@ const Loader = () => (
     <span>.</span>
     <span>.</span>
   </Animation>
-)
+);
 
 export default Loader;
